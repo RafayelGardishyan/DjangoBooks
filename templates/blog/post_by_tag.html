@@ -1,0 +1,47 @@
+<head>
+    <style>
+        *{
+    margin: 0;
+}
+
+.content{
+padding: 7.5px;
+    border-width: 5px;
+    border-color: #56c435;
+    border-style: solid;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    height: auto;
+    border-radius: 10px;
+    border-bottom-style: none;
+    border-top-style: none;
+}
+        a.post-title:link{font-size: 20px; text-decoration: none;
+            color: #408627;}
+        a.post-title:visited{color: #408627;}
+        a.post-title:hover{color: #136001;}
+        a.post-title:active{color: #134901;}
+    </style>
+</head>
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    {{ tag|title }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="section-inner clearfix">
+            <h4>Alle boeken die getagt zijn met - {{ tag.name }}</h4>
+            {% for post in posts reversed %}
+            <h3>
+                <a class="post-title" href="{{ post.get_absolute_url }}">{{ post.title|capfirst }}</a>
+            </h3>
+            <p class="post-info">
+                {% include 'blog/post_info.html' %}
+            </p>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

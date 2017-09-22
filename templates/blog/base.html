@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Django | Books{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <style>
+        *{font-family: 'PT Sans'}
+        .navbar{
+            position: sticky;
+            padding: 7.5px;
+            border-width: 5px;
+            border-color: #408627;
+            border-style: solid;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 5px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+        a.home:link{font-size: 35px; text-decoration: none;
+            color: #408627;}
+        a.home:visited{color: #408627;}
+        a.home:hover{color: #408627;}
+        a.home:active{color: #136001;}
+        .footer {
+                        padding: 7.5px;
+            border-width: 5px;
+            border-color: #408627;
+            border-style: solid;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 10px;
+  text-align: center;
+}
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="section-inner clearfix">
+            <nav>
+                <a class="home" href="/"><i>Django</i> | <b>Books</b></a>
+            </nav>
+        </div>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block footer %}
+
+    <div class="footer">
+        <div class="section-inner clearfix">
+            <p><b>&copy; Rowafean Inc. 2017</b></p>
+        </div>
+    </div>
+
+    {% endblock %}
+
+</body>
+</html>

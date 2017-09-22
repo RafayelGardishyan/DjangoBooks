@@ -1,0 +1,27 @@
+<style>
+    .contentino{margin-top: 10px; margin-bottom: 10px;}
+    a.linkcat:link{ text-decoration: none;
+        font-weight:bold;
+            color: #408627;}
+        a.linkcat:visited{color: #408627;}
+        a.linkcat:hover{color: #408627;}
+        a.linkcat:active{color: #136001;}
+    a.linktag:link{ text-decoration: none;
+        font-weight:bold;
+            color: #408627;}
+        a.linktag:visited{color: #408627;}
+        a.linktag:hover{color: #408627;}
+        a.linktag:active{color: #136001;}
+</style>
+<!--<b><span class="contentino">{{post.content|truncatewords:50 }}</span></b><br />-->
+<i><span>Toegevoegd op: {{ post.publication_date|date:"d-m-y" }}</span> |
+    <span>Auteur: {{ post.author }}</span> |
+<span>Categorie : <a class="linkcat" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></span> |
+<span>Tags :
+  {% for tag in post.tags.all %}
+      <a class="linktag" href="{{ tag.get_absolute_url }}">{{ tag }} | </a>
+  {% empty %}
+      Geen Tags
+  {% endfor %}
+</span><br /><br />
+</i>
