@@ -49,7 +49,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author)
     category = models.ForeignKey(Category)
     tags = models.ManyToManyField(Tag)
-    link = models.CharField(max_length=300)
+    file = models.FileField(upload_to='books_storage')
 
 
     def __str__(self):

@@ -29,5 +29,5 @@ a.link:link{ text-decoration: none;
   {% empty %}
       Geen Tags
   {% endfor %}
-</span> <span>File: <a class="link" href="http://{{ post.link }}">Download Link</a></span><br /><br />
+</span> <span>File: <a class="link" href="{{ post.file.url }}">Download Link</a></span><br /><br />
 </i>

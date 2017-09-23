@@ -26,7 +26,7 @@ class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'publication_date'
     filter_horizontal = ('tags',)
     raw_id_fields = ('tags',)
-    fields = ('title', 'content', 'author', 'category', 'tags', 'link')
+    fields = ('title', 'content', 'author', 'category', 'tags', 'file')
 
 
 class CategoryAdmin(admin.ModelAdmin):

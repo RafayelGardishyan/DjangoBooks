@@ -4,7 +4,8 @@ from django.shortcuts import render, redirect, get_object_or_404, get_list_or_40
 from .models import Post, Author, Tag, Category
 from .forms import FeedbackForm
 from django_books import helpers
-from django.contrib import auth
+from django.contrib import auth, messages
+
 
 def index(request):
     return HttpResponse("Hello Django")
