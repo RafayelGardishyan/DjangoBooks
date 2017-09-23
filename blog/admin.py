@@ -15,13 +15,13 @@ class AuthorAdmin(admin.ModelAdmin):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'publication_date', 'author', 'category',)
-    search_fields = ['title', 'content']
+    search_fields = ['title', 'content', 'author']
     ordering = ['-publication_date']
     list_filter = ['publication_date']
     date_hierarchy = 'publication_date'
     filter_horizontal = ('tags',)
     raw_id_fields = ('tags',)
-    fields = ('title', 'content', 'author', 'category', 'tags',)
+    fields = ('title', 'content', 'author', 'category', 'tags', 'link')
 
 
 class CategoryAdmin(admin.ModelAdmin):

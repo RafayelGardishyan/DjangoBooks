@@ -33,7 +33,7 @@ padding: 7.5px;
 {% block content %}
     <div class="content">
         <div class="section-inner clearfix">
-            <h4>Alle boeken die getagt zijn met - {{ tag.name }}</h4>
+            <h4>All books tagged with - {{ tag.name }}</h4>
             {% for post in posts reversed %}
             <h3>
                 <a class="post-title" href="{{ post.get_absolute_url }}">{{ post.title|capfirst }}</a>

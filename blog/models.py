@@ -13,7 +13,7 @@ class Author(models.Model):
     last_logged_in = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name + " - " + self.email
+        return self.name
 
 
 
@@ -49,6 +49,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author)
     category = models.ForeignKey(Category)
     tags = models.ManyToManyField(Tag)
+    link = models.CharField(max_length=300)
 
 
     def __str__(self):
