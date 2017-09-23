@@ -26,7 +26,12 @@
         .post{
 
         }
-
+a.link:link{ text-decoration: none;
+        font-weight:bold;
+            color: #408627;}
+        a.link:visited{color: #408627;}
+        a.link:hover{color: #408627;}
+        a.link:active{color: #136001;}
     </style>
 </head>
 {% extends "blog/base.html"  %}
@@ -52,6 +57,22 @@
             <p class="noposts">There are no books</p>
 
         {% endfor %}
+            <div class="section-inner clearfix">
+                <div class="pagination" style="margin-top: 10px; text-align: center; font-size: 15px;">
+
+
+                        <p>
+                            {% if posts.has_previous %}
+                                <a class="link" href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+                            {% endif %}
+
+                            <span><b>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</b></span>
+                            {% if posts.has_next %}
+                                <a class="link" href="?page={{ posts.next_page_number }}">Next &gt;</a>
+                            {% endif %}
+                        </p>
+                    </div>
         </div>
+            </div>
     </div>
 {% endblock %}

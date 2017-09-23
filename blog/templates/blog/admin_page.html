@@ -1,0 +1,15 @@
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    Blog - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <script>
+            window.location = "/admin";
+        </script>
+    </div>
+
+{% endblock %}

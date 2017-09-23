@@ -4,6 +4,11 @@ from blog import models
 
 # Register your models here.
 
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'subject','date',)
+    search_fields = ('name', 'email',)
+    date_hierarchy = 'date'
+
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'created_on')
     search_fields = ['name', 'email']
@@ -38,3 +43,4 @@ admin.site.register(models.Post, PostAdmin)
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Author, AuthorAdmin)
 admin.site.register(models.Tag, TagAdmin)
+admin.site.register(models.Feedback, FeedbackAdmin)

@@ -22,6 +22,12 @@ padding: 7.5px;
         a.post-title:visited{color: #408627;}
         a.post-title:hover{color: #136001;}
         a.post-title:active{color: #134901;}
+        a.link:link{ text-decoration: none;
+        font-weight:bold;
+            color: #408627;}
+        a.link:visited{color: #408627;}
+        a.link:hover{color: #408627;}
+        a.link:active{color: #136001;}
     </style>
 </head>
 {% extends "blog/base.html"  %}
@@ -42,6 +48,21 @@ padding: 7.5px;
                 {% include 'blog/post_info.html' %}
             </p>
         {% endfor %}
+            <div class="pagination" style="margin-top: 10px; text-align: center; font-size: 15px;">
+    <div class="section-inner clearfix">
+        <p>
+            {% if posts.has_previous %}
+                <a class="link" href="?page={{ posts.previous_page_number }}">&lt; Prev</a> |
+            {% endif %}
+
+            {% if posts.has_next %}
+                <a class="link"  href="?page={{ posts.next_page_number }}">Next &gt;</a>
+            {% endif %}
+
+            <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+        </p>
+    </div>
+</div>
         </div>
     </div>
 {% endblock %}

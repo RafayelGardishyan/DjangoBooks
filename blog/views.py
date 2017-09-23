@@ -1,12 +1,17 @@
-from django.http import HttpResponse, HttpResponseNotFound,Http404
-from django.shortcuts import render
+from django.core.mail import mail_admins
+from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .models import Post, Author, Tag, Category
+from .forms import FeedbackForm
+from django_books import helpers
+from django.contrib import auth
 
 def index(request):
     return HttpResponse("Hello Django")
 
 def post_list(request):
-    posts = Post.objects.all()
+    post_list = Post.objects.order_by("-id").all()
+    posts = helpers.pg_records(request, post_list, 10)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_detail(request, pk):
@@ -17,24 +22,73 @@ def post_detail(request, pk):
 
     return render(request, 'blog/post_detail.html', {'post': post})
 
-def posts_by_category(request, category_slug):
-    category = Category.objects.get(slug=category_slug)
-    posts = Post.objects.filter(category__slug=category_slug)
+def post_by_category(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    posts = get_list_or_404(Post.objects.order_by("-id"), category=category)
+    posts = helpers.pg_records(request, posts, 10)
     context = {
         'category': category,
         'posts': posts
     }
-    print(category)
     return render(request, 'blog/post_by_category.html', context)
 
 
 # view function to display post by tag
-def posts_by_tag(request, tag_slug):
-    tag = Tag.objects.get(slug=tag_slug)
-    posts = Post.objects.filter(tags__name=tag)
+def post_by_tag(request, tag_slug):
+    tag = get_object_or_404(Tag, slug=tag_slug)
+    posts = get_list_or_404(Post.objects.order_by("-id"), tags=tag)
+    posts = helpers.pg_records(request, posts, 10)
     context = {
         'tag': tag,
         'posts': posts
     }
     return render(request, 'blog/post_by_tag.html', context )
 
+
+def feedback(request):
+    if request.method == 'POST':
+        f = FeedbackForm(request.POST)
+        if f.is_valid():
+            name = f.cleaned_data['name']
+            sender = f.cleaned_data['email']
+            subject = "You have a new Feedback from {}:{}".format(name, sender)
+            message = "Subject: {}\n\nMessage: {}".format(f.cleaned_data['subject'], f.cleaned_data['message'])
+
+            mail_admins(subject, message)
+            f.save()
+            return redirect('feedback')
+
+    else:
+        f = FeedbackForm()
+    return render(request, 'blog/feedback.html', {'form': f})
+
+def login(request):
+    if request.user.is_authenticated():
+        return redirect('admin_page')
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            # correct username and password login the user
+            auth.login(request, user)
+            return redirect('admin_page')
+
+        else:
+            messages.error(request, 'Error wrong username/password')
+
+    return render(request, 'blog/login.html')
+
+
+def logout(request):
+    auth.logout(request)
+    return render(request,'blog/logout.html')
+
+
+def admin_page(request):
+    if not request.user.is_authenticated():
+        return redirect('blog_login')
+
+    return render(request, 'blog/admin_page.html')
