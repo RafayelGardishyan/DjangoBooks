@@ -78,7 +78,6 @@ def feedback(request):
             message = "Subject: {}\n\nMessage: {}".format(f.cleaned_data['subject'], f.cleaned_data['message'])
 
             mail_admins(subject, message)
-            send_mail('Django | Books feedback', 'Dear '+name+', Thank you for sending us a feedback. We will response in the next 72 hours.', 'djangogooksemail@gmail.com', sender,)
             f.save()
             return render(request, 'blog/thank_you.html', {'name' : name})
 
