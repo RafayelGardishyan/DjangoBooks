@@ -39,7 +39,7 @@ padding: 7.5px;
         {% include 'blog/post_info.html' %}
     </p>
     <p>
-        {{ post.content }}
+        {{ post.content|safe }}
     </p>
 	
             </div>
