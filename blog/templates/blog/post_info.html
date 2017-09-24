@@ -20,8 +20,8 @@ a.link:link{ text-decoration: none;
         a.link:active{color: #136001;}
 </style>
 <!--<b><span class="contentino">{{post.content|truncatewords:50 }}</span></b><br />-->
-<i><span>Dded on: {{ post.publication_date|date:"d-m-y" }}</span> |
-    <span>Author: {{ post.author }}</span> |
+<i><span>Added on: {{ post.publication_date|date:"d-m-y" }}</span> |
+    <span>Author: <a class="link" href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></span> |
 <span>Category : <a class="linkcat" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></span> |
 <span>Tags :
   {% for tag in post.tags.all %}

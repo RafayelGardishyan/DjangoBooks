@@ -45,6 +45,16 @@ def post_by_tag(request, tag_slug):
     }
     return render(request, 'blog/post_by_tag.html', context )
 
+def post_by_author(request, author_name):
+    author = get_object_or_404(Author, slug=author_name)
+    posts = get_list_or_404(Post.objects.order_by("-id"), author=author)
+    posts = helpers.pg_records(request, posts, 10)
+    context = {
+        'author': author,
+        'posts': posts
+    }
+    return render(request, 'blog/post_by_author.html', context )
+
 
 def feedback(request):
     if request.method == 'POST':
@@ -57,7 +67,7 @@ def feedback(request):
 
             mail_admins(subject, message)
             f.save()
-            return redirect('feedback')
+            return render(request, 'blog/thank_you.html', {'name' : name})
 
     else:
         f = FeedbackForm()
