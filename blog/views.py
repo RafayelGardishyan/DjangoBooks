@@ -1,6 +1,6 @@
 from functools import reduce
 
-from django.core.mail import mail_admins
+from django.core.mail import mail_admins, send_mail
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .models import Post, Author, Tag, Category
@@ -68,6 +68,7 @@ def feedback(request):
             message = "Subject: {}\n\nMessage: {}".format(f.cleaned_data['subject'], f.cleaned_data['message'])
 
             mail_admins(subject, message)
+            send_mail('Django | Books feedback', 'Dear '+name+', Thank you for sending us a feedback. We will response in the next 72 hours.', 'djangogooksemail@gmail.com', sender,)
             f.save()
             return render(request, 'blog/thank_you.html', {'name' : name})
 
