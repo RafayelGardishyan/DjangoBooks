@@ -1,0 +1,75 @@
+<head>
+    <style>
+        *{
+    margin: 0;
+}
+
+.content{
+    padding: 7.5px;
+    border-width: 5px;
+    border-color: #56c435;
+    border-style: solid;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    height: auto;
+    border-radius: 10px;
+    border-bottom-style: none;
+    border-top-style: none;
+}
+        a.post-title:link{font-size: 20px; text-decoration: none;
+            color: #408627;}
+        a.post-title:visited{color: #408627;}
+        a.post-title:hover{color: #136001;}
+        a.post-title:active{color: #134901;}
+
+        .post{
+
+        }
+a.link:link{ text-decoration: none;
+        font-weight:bold;
+            color: #408627;}
+        a.link:visited{color: #408627;}
+        a.link:hover{color: #408627;}
+        a.link:active{color: #136001;}
+    </style>
+</head>
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    All books - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="section-inner clearfix">
+
+        {% for category in categories %}
+            <div class="post">
+            <h3>
+                <a class="post-title" href="{{ category.get_absolute_url }}">{{ category.name|capfirst }}</a>
+            </h3>
+            </div>
+        {% empty %}
+            <p class="noposts">There are no categories</p>
+
+        {% endfor %}
+            <div class="section-inner clearfix">
+                <div class="pagination" style="margin-top: 10px; text-align: center; font-size: 15px;">
+
+
+                        <p>
+                            {% if categories.has_previous %}
+                                <a class="link" href="?page={{ categories.previous_page_number }}">&lt; Prev</a> |
+                            {% endif %}
+
+                            <span><b>Page {{ categories.number }} of {{ categories.paginator.num_pages }}</b></span>
+                            {% if categories.has_next %}
+                                <a class="link" href="?page={{ categories.next_page_number }}">Next &gt;</a>
+                            {% endif %}
+                        </p>
+                    </div>
+        </div>
+            </div>
+    </div>
+{% endblock %}

@@ -17,6 +17,16 @@ def post_list(request):
     posts = helpers.pg_records(request, post_list, 10)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def author_list(request):
+    author_list = Author.objects.order_by("-name").all()
+    authors = helpers.pg_records(request, author_list, 10)
+    return render(request, 'blog/author_list.html', {'authors': authors})
+
+def category_list(request):
+    category_list = Category.objects.order_by("-name").all()
+    categoies = helpers.pg_records(request, category_list, 10)
+    return render(request, 'blog/category_list.html', {'categories': categoies})
+
 def post_detail(request, pk):
     try:
         post = Post.objects.get(pk=pk)

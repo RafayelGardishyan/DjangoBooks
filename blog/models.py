@@ -12,6 +12,7 @@ class Author(models.Model):
     active = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     last_logged_in = models.DateTimeField(auto_now=True)
+    author_info = models.TextField(max_length=1000, verbose_name="Author Info")
 
 
     def __str__(self):
