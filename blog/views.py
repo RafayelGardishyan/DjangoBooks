@@ -1,3 +1,5 @@
+from functools import reduce
+
 from django.core.mail import mail_admins
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
