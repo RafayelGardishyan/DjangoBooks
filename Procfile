@@ -1,1 +1,1 @@
-web: gunicorn django_books:application -b --log-file -
+web: `python manage.py runserver 0.0.0.0:$PORT --noreload`
