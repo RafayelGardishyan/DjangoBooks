@@ -56,7 +56,7 @@ class Tag(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        self.author = "Rafayel"
+        self.author = slugify(self.name)
         super(Tag, self).save(*args, **kwargs)
 
 
