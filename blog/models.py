@@ -8,7 +8,7 @@ from django.urls import reverse
 class Author(models.Model):
     name = models.CharField(max_length=50, verbose_name="Author Name")
     slug = models.SlugField(max_length=100)
-    email = models.EmailField(unique=True, blank=True)
+    email = models.EmailField( blank=True)
     active = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
     last_logged_in = models.DateTimeField(auto_now=True)
