@@ -39,7 +39,7 @@ class PostAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug',)
     search_fields = ('name',)
-    fields = ('name',)
+    fields = ('name', 'author',)
 
 
 class TagAdmin(admin.ModelAdmin):
