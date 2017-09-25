@@ -45,7 +45,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug',)
     search_fields = ('name',)
-    fields = ('name',)
+    fields = ('name', 'author',)
 
 
 admin.site.register(models.Post, PostAdmin)
