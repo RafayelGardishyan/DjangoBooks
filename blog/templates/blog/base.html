@@ -133,9 +133,13 @@
             margin-left: 5px;
             margin-right: 5px;
             border-radius: 10px;
+			text-align: center;
+			}
 			
-  /*text-align: center;*/
-}
+		#feedback {
+			float:right;
+		}
+			
     </style>
 </head>
 <body>
@@ -148,8 +152,8 @@
         </div>
         <a class="linkio" href="/login">HUB</a> |
 		<span><a class="link" href="/authors">Authors List</a></span> |
-		<span><aclass="link" href="/categories">All Categories</a></span> |
-		<span><i><a class="link" href="/feedback">Feedback</a></i></span>
+		<span><a class="link" href="/categories">All Categories</a></span> |
+		
     </div>
 
     {% block content %}
@@ -162,7 +166,7 @@
     <div class="footer">
         <div class="section-inner clearfix">
             <p><span><b>&copy; Rowafean Inc. 2017</b></span></p>
-
+			<span><i><a class="link" id="feedback" href="/feedback">Feedback</a></i></span>
         </div>
     </div>
 
