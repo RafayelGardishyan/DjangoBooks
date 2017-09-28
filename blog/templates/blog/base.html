@@ -7,7 +7,8 @@
     <style>
         a.link:link{ text-decoration: none;
 			font-weight:bold;
-            color: #408627;}
+            color: #408627;
+			}
 			
         a.link:visited{color: #408627;}
 		
@@ -17,7 +18,8 @@
 		
         a.linkio:link{text-decoration: none;
 			font-weight:bold;
-            color: #408627;}
+            color: #408627;
+			}
 			
         a.linkio:visited{color: #408627;}
 		
@@ -112,8 +114,7 @@
             margin-left: 5px;
             margin-right: 5px;
             margin-top: 5px;
-            border-radius: 10px;
-            margin-bottom: 5px;
+            border-radius: 10px 10px 0px 0px;
         }
 		
         a.home:link{font-size: 35px; text-decoration: none;
@@ -132,14 +133,17 @@
             border-style: solid;
             margin-left: 5px;
             margin-right: 5px;
-            border-radius: 10px;
-			text-align: center;
+            border-radius: 0px 0px 10px 10px
 			}
 			
 		#feedback {
 			float:right;
 		}
 			
+		.navi {
+			font-weight:bold;
+            color: #408627;
+		}
     </style>
 </head>
 <body>
@@ -150,11 +154,14 @@
                 <a class="home" href="/"><i>Django</i> | <b>Books</b></a>
             </nav>
         </div>
-        <a class="linkio" href="/login">HUB</a> |
-		<span><a class="link" href="/authors">Authors List</a></span> |
-		<span><a class="link" href="/categories">All Categories</a></span> |
-		
-    </div>
+		<nav>
+			<a class="linkio" href="/login">HUB</a>
+			<b class="navi">|</b>
+			<a class="link" href="/authors">Authors List</a>
+			<b class="navi">|</b>
+			<a class="link" href="/categories">All Categories</a>
+		</nav>
+	</div>
 
     {% block content %}
 
@@ -165,8 +172,8 @@
 
     <div class="footer">
         <div class="section-inner clearfix">
-            <p><span><b>&copy; Rowafean Inc. 2017</b></span></p>
-			<span><i><a class="link" id="feedback" href="/feedback">Feedback</a></i></span>
+            <p><span><b>&copy; Rowafean Inc. 2017</b>
+			<i><a class="link" id="feedback" href="/feedback">Feedback</a></i></span></p>
         </div>
     </div>
 
