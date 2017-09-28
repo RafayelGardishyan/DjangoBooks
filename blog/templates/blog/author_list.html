@@ -50,7 +50,7 @@ a.link:link{ text-decoration: none;
                 <a class="post-title" href="{{ author.get_absolute_url }}">{{ author.name|capfirst }}</a>
             </h3>
             <p class="post-info">
-                <span>About author: <i>{{author.author_info}}</i></span>
+                <span>About author: <i>{{ author.author_info|truncatewords:25 }}</i></span>
             </p>
             </div>
         {% empty %}
