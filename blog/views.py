@@ -35,6 +35,14 @@ def post_detail(request, pk):
 
     return render(request, 'blog/post_detail.html', {'post': post})
 
+def author_info(request, author_name):
+    try:
+        author = Author.objects.get(slug=author_name)
+    except Author.DoesNotExist:
+        return HttpResponseNotFound("Page not found")
+
+    return render(request, 'blog/author_detail.html', {'author': author})
+
 def post_by_category(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     posts = get_list_or_404(Post.objects.order_by("-id"), category=category)

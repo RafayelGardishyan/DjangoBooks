@@ -25,6 +25,9 @@ class Author(models.Model):
     def get_absolute_url(self):
         return reverse('post_by_author', args=[self.slug])
 
+    def get_absolute_url_info(self):
+        return reverse('author_info', args=[self.slug])
+
 
 
 class Category(models.Model):

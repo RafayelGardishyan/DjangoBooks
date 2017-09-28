@@ -1,0 +1,47 @@
+<head>
+    <style>
+        *{
+    margin: 0;
+}
+
+.content{
+padding: 7.5px;
+    border-width: 5px;
+    border-color: #56c435;
+    border-style: solid;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    height: auto;
+    border-radius: 10px;
+    border-bottom-style: none;
+    border-top-style: none;
+    font-size: 15px;
+}
+   .coco{
+       padding: 5px;
+   }
+
+    </style>
+</head>
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    {{ author.name|capfirst }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="section-inner clearfix">
+            <div class="coco">
+            <h1>{{ author.name|capfirst }}</h1>
+    <p class="post-info">
+    </p>
+    <p>
+        {{ author.author_info|safe }}
+    </p>
+	
+            </div>
+        </div>
+    </div>
+{% endblock %}
