@@ -6,9 +6,9 @@ from django.urls import reverse
 
 
 class Author(models.Model):
-    firstname = models.CharField(max_length=50, verbose_name="Authors First Name")
-    lastname = models.CharField(max_length=50, verbose_name="Authors Last Name")
-    name = models.CharField(max_length=50, verbose_name="Author Name")
+    firstname = models.CharField(max_length=50, blank=True verbose_name="Authors First Name")
+    lastname = models.CharField(max_length=50, blank=True, verbose_name="Authors Last Name")
+    name = models.CharField(max_length=50, blank=True, verbose_name="Author Name")
     slug = models.SlugField(max_length=100)
     email = models.EmailField( blank=True)
     active = models.BooleanField(default=False)
