@@ -4,19 +4,19 @@
     margin: 0;
 }
 
-        .content{
-			padding: 7.5px;
-			border-width: 5px;
-			border-color: #347bc1;
-			border-style: solid;
-			margin-left: 5px;
-			margin-right: 5px;
-			height: auto;
-			border-radius: 10px;
-			border-bottom-style: none;
-			border-top-style: none;
-			background-color: rgba(0,0,0,0.1);
-		}
+.content{
+    padding: 7.5px;
+    border-width: 5px;
+    border-color: #56c435;
+    border-style: solid;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    height: auto;
+    border-radius: 10px;
+    border-bottom-style: none;
+    border-top-style: none;
+}
         a.post-title:link{font-size: 20px; text-decoration: none;
             color: #408627;}
         a.post-title:visited{color: #408627;}
@@ -32,17 +32,47 @@ a.link:link{ text-decoration: none;
         a.link:visited{color: #408627;}
         a.link:hover{color: #408627;}
         a.link:active{color: #136001;}
+
+
     </style>
 </head>
 {% extends "blog/base.html"  %}
 
 {% block title %}
-    All books - {{ block.super }}
+    All authors - {{ block.super }}
 {% endblock %}
 
 {% block content %}
     <div class="content">
         <div class="section-inner clearfix">
+            <ul class="letters">
+                <li class="letter"><a class="link" href="/authors/A">A</a></li>
+                <li class="letter"><a class="link" href="/authors/B">B</a></li>
+                <li class="letter"><a class="link" href="/authors/C">C</a></li>
+                <li class="letter"><a class="link" href="/authors/D">D</a></li>
+                <li class="letter"><a class="link" href="/authors/E">E</a></li>
+                <li class="letter"><a class="link" href="/authors/F">F</a></li>
+                <li class="letter"><a class="link" href="/authors/G">G</a></li>
+                <li class="letter"><a class="link" href="/authors/H">H</a></li>
+                <li class="letter"><a class="link" href="/authors/I">I</a></li>
+                <li class="letter"><a class="link" href="/authors/J">J</a></li>
+                <li class="letter"><a class="link" href="/authors/K">K</a></li>
+                <li class="letter"><a class="link" href="/authors/L">L</a></li>
+                <li class="letter"><a class="link" href="/authors/M">M</a></li>
+                <li class="letter"><a class="link" href="/authors/N">N</a></li>
+                <li class="letter"><a class="link" href="/authors/O">O</a></li>
+                <li class="letter"><a class="link" href="/authors/P">P</a></li>
+                <li class="letter"><a class="link" href="/authors/Q">Q</a></li>
+                <li class="letter"><a class="link" href="/authors/R">R</a></li>
+                <li class="letter"><a class="link" href="/authors/S">S</a></li>
+                <li class="letter"><a class="link" href="/authors/T">T</a></li>
+                <li class="letter"><a class="link" href="/authors/U">U</a></li>
+                <li class="letter"><a class="link" href="/authors/V">V</a></li>
+                <li class="letter"><a class="link" href="/authors/W">W</a></li>
+                <li class="letter"><a class="link" href="/authors/X">X</a></li>
+                <li class="letter"><a class="link" href="/authors/Y">Y</a></li>
+                <li class="letter"><a class="link" href="/authors/Z">Z</a></li>
+            </ul>
 
         {% for author in authors %}
             <div class="post">
