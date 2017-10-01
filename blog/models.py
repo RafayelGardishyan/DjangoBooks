@@ -6,9 +6,7 @@ from django.urls import reverse
 
 
 class Author(models.Model):
-    firstname = models.CharField(max_length=50, blank=True, verbose_name="Authors First Name")
-    lastname = models.CharField(max_length=50, blank=True, verbose_name="Authors Last Name")
-    name = models.CharField(max_length=50, blank=True, verbose_name="Author Name")
+    name = models.CharField(max_length=50, verbose_name="Author Name")
     slug = models.SlugField(max_length=100)
     email = models.EmailField( blank=True)
     active = models.BooleanField(default=False)
@@ -21,8 +19,7 @@ class Author(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.firstname + '_' + self.lastname)
-        self.name = self.lastname + ", " + self.firstname
+        self.slug = slugify(self.name)
         super(Author, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
