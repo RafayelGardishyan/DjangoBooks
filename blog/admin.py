@@ -21,7 +21,7 @@ class AuthorAdmin(admin.ModelAdmin):
     ordering = ['-name']
     list_filter = ['active']
     date_hierarchy = 'created_on'
-    fields = ('name', 'author_info', 'email')
+    fields = ('firstname', 'lastname', 'author_info', 'email')
 
 
 
