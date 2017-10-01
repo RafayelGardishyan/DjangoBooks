@@ -28,6 +28,8 @@ class Author(models.Model):
     def get_absolute_url_info(self):
         return reverse('author_info', args=[self.slug])
 
+    def first_letter(self):
+        return self.name[0]
 
 
 class Category(models.Model):
