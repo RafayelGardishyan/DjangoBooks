@@ -17,6 +17,21 @@ def post_list(request):
     posts = helpers.pg_records(request, post_list, 10)
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def author_list_letter(request, letter):
+    author_list = Author.objects.order_by("-name").all().filter(name__startswith=letter)
+    # print(author_list)
+    # for author in author_list:
+    #     print(author)
+    #     first = author.first_letter()
+    #     print(first)
+    #     if not first == letter:
+    #         print(letter)
+    #         print(author)
+    #         author_list.exclude(author)
+
+    authors = helpers.pg_records(request, author_list, 10)
+    return render(request, 'blog/author_list_letter.html', {'authors': authors, 'letter': letter})
+
 def author_list(request):
     author_list = Author.objects.order_by("-name").all()
     authors = helpers.pg_records(request, author_list, 10)
