@@ -1,7 +1,7 @@
 from functools import reduce
 
 from django.core.mail import mail_admins, send_mail
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .models import Post, Author, Tag, Category
 from .forms import FeedbackForm
@@ -31,6 +31,29 @@ def author_list_letter(request, letter):
 
     authors = helpers.pg_records(request, author_list, 10)
     return render(request, 'blog/author_list_letter.html', {'authors': authors, 'letter': letter})
+
+def api_authors(request):
+    authorslist_raw = list(Author.objects.values('id'))
+    authorlist = {}
+    for item in authorslist_raw:
+        link = Author.objects.get(id=item['id']).get_absolute_url()
+        name = Author.objects.get(id=item['id']).name
+        info = Author.objects.get(id=item['id']).author_info
+        authorlist[item['id']] = {'name': name, 'author_info': info, 'url': link, }
+
+    return JsonResponse(authorlist)
+
+def api_books(request):
+    authorslist_raw = list(Post.objects.values('id'))
+    authorlist = {}
+    for item in authorslist_raw:
+        link = Post.objects.get(id=item['id']).get_absolute_url()
+        downloadlink = Post.objects.get(id=item['id']).file.url
+        name = Post.objects.get(id=item['id']).title
+        content = Post.objects.get(id=item['id']).content
+        authorlist[item['id']] = {'title': name, 'Content': content, 'url': link, 'download_link': downloadlink }
+
+    return JsonResponse(authorlist)
 
 def author_list(request):
     author_list = Author.objects.order_by("-name").all()
