@@ -121,7 +121,7 @@ def api_books_single(request, pk):
     info = book.content
     dwnldlink = book.file.url
     category = book.category.name
-    tags = Post.objects.get(id=item['id']).tags.all()
+    tags = Post.objects.get(pk=pk).tags.all()
     taglist = []
     for i in tags:
         taglist.append(i.name)
