@@ -53,11 +53,11 @@ def api_authors_single(request, author_name):
     info = author.author_info
 #     booksraw = Post.objects.get(author=author)
 #     books = Post.objects.values('title')
-    from django.core import serializers
-    books = serializers.serialize('json', Post.objects.get(author=author), fields=('title',))
+#     from django.core import serializers
+#     books = serializers.serialize('json', Post.objects.get(author=author), fields=('title',))
     
     
-    authorlist[name] = {'id': author.id, 'name': name, 'info': info, 'books': books }
+    authorlist[name] = {'id': author.id, 'name': name, 'info': info}
 
     return JsonResponse(authorlist)
 
