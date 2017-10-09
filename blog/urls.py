@@ -16,5 +16,7 @@ urlpatterns = [
     url(r'^authors/(?P<letter>\w+)$', views.author_list_letter, name='author_list_letter'),
     url(r'^categories/$', views.category_list, name='category_list'),
     url(r'api/authors/$', views.api_authors, name='Api/Authors'),
-    url(r'api/books/$', views.api_books, name='Api/Books')
+    url(r'api/books/$', views.api_books, name='Api/Books'),
+    url(r'^api/books/(?P<pk>\d+)/$', views.api_books_single, name='Api/Books/Single'),
+    url(r'^author/(?P<author_name>[\w-]+)$', views.api_authors_single, name='Api/Authors/Single')
 ]
