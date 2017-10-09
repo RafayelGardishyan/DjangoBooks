@@ -48,7 +48,7 @@ def api(request):
         link = Post.objects.get(id=item['id']).get_absolute_url_api()
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
-        category = Post.objects.get(id=item['id']).category
+        category = Post.objects.get(id=item['id']).category.name
         tags = Post.objects.get(id=item['id']).tags.all()
         taglist = []
         for i in tags:
