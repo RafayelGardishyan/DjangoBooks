@@ -61,7 +61,7 @@ def api_authors_single(request, author_name):
 
     return JsonResponse(authorlist)
 
-def api_authors_single(request, pk):
+def api_books_single(request, pk):
     try:
         book = Post.objects.get(pk=pk)
     except Post.DoesNotExist:
