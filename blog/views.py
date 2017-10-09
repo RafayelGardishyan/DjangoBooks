@@ -61,14 +61,25 @@ def api_authors_single(request, author_name):
 
     return JsonResponse(authorlist)
 
-def api_books_single(request, pk):
-    print(pk)
-    authorslist_raw = list(Author.objects.values('id'))
+def api_authors_single(request, pk):
+    try:
+        book = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return HttpResponseNotFound("Page not found")
     authorlist = {}
-    for item in authorslist_raw:
-        link = Author.objects.get(id=item['id']).get_absolute_url_api()
-        name = Author.objects.get(id=item['id']).name
-        authorlist[name] = {'id': item['id'], 'url': link, }
+    id = post.id
+    name = post.name
+    author = post.author
+    info = author.content
+    dwnldlink = author.file.url
+    
+#     booksraw = Post.objects.get(author=author)
+#     books = Post.objects.values('title')
+#     from django.core import serializers
+#     books = serializers.serialize('json', Post.objects.get(author=author), fields=('title',))
+    
+    
+    authorlist[name] = {'id': id, 'name': name, 'author': author 'info': info, 'downloadlink': dwnldlink}
 
     return JsonResponse(authorlist)
 
