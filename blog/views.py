@@ -42,7 +42,7 @@ def api_authors(request):
 
     return JsonResponse(authorlist)
 
-def api_authors_single(request, author):
+def api_authors_single(request, author_name):
     print(author)
     authorslist_raw = list(Author.objects.values('id'))
     authorlist = {}
