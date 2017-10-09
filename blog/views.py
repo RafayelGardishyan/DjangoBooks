@@ -32,13 +32,48 @@ def author_list_letter(request, letter):
     authors = helpers.pg_records(request, author_list, 10)
     return render(request, 'blog/author_list_letter.html', {'authors': authors, 'letter': letter})
 
-def api_authors(request):
+def api(request):
     authorslist_raw = list(Author.objects.values('id'))
     authorlist = {}
     for item in authorslist_raw:
         link = Author.objects.get(id=item['id']).get_absolute_url_api()
         name = Author.objects.get(id=item['id']).name
         authorlist[name] = {'id': item['id'], 'url': link, }
+
+    authorslist_raw = list(Post.objects.values('id'))
+
+    booklist = {}
+    for item in authorslist_raw:
+        author = Post.objects.get(id=item['id']).author.name
+        link = Post.objects.get(id=item['id']).get_absolute_url_api()
+        downloadlink = Post.objects.get(id=item['id']).file.url
+        name = Post.objects.get(id=item['id']).title
+        booklist[name] = {'id': item['id'], 'author': author, 'url': link, 'download_link': downloadlink }
+
+    authorslist_raw = list(Category.objects.values('id'))
+    categorylist = {}
+    for item in authorslist_raw:
+        name = Category.objects.get(id=item['id']).name
+        author = Category.objects.get(id=item['id']).author.name
+        categorylist[name] = {'id': item['id'], 'author': author}
+
+    apitotal = {
+        'books': booklist,
+        'authors': authorlist,
+        'categories': categorylist
+    }
+
+    return JsonResponse(apitotal)
+
+
+def api_authors(request):
+    authorslist_raw = list(Author.objects.values('id'))
+    authorlist = {}
+    for item in authorslist_raw:
+        link = Author.objects.get(id=item['id']).get_absolute_url_api()
+        name = Author.objects.get(id=item['id']).name
+        authorlist[name] = {'id': item['id'],
+                            'url': link, }
 
     return JsonResponse(authorlist)
 
@@ -57,31 +92,37 @@ def api_authors_single(request, author_name):
 #     books = serializers.serialize('json', Post.objects.get(author=author), fields=('title',))
     
     
-    authorlist[name] = {'id': author.id, 'name': name, 'info': info}
+    authorlist[name] = {'id': author.id,
+                        'info': info}
 
     return JsonResponse(authorlist)
 
-# def api_books_single(request, pk):
-#     try:
-#         book = Post.objects.get(pk=pk)
-#     except Post.DoesNotExist:
-#         return HttpResponseNotFound("Page not found")
-#     authorlist = {}
-#     id = post.id
-#     name = post.name
-#     author = post.author
-#     info = author.content
-#     dwnldlink = author.file.url
+def api_books_single(request, pk):
+    try:
+        book = Post.objects.get(pk=pk)
+    except Post.DoesNotExist:
+        return HttpResponseNotFound("Page not found")
+    authorlist = {}
+    id = book.id
+    name = book.title
+    author = book.author.name
+    info = book.content
+    dwnldlink = book.file.url
+    category = book.category.name
     
-# #     booksraw = Post.objects.get(author=author)
-# #     books = Post.objects.values('title')
-# #     from django.core import serializers
-# #     books = serializers.serialize('json', Post.objects.get(author=author), fields=('title',))
+#     booksraw = Post.objects.get(author=author)
+#     books = Post.objects.values('title')
+#     from django.core import serializers
+#     books = serializers.serialize('json', Post.objects.get(author=author), fields=('title',))
     
     
-#     authorlist[name] = {'id': id, 'name': name, 'author': author 'info': info, 'downloadlink': dwnldlink}
+    authorlist[name] = {'id': id,
+                        'author': author,
+                        'info': info,
+                        'category': category,
+                        'downloadlink': dwnldlink}
 
-#     return JsonResponse(authorlist)
+    return JsonResponse(authorlist)
 
 def api_books(request):
     authorslist_raw = list(Post.objects.values('id'))
@@ -91,9 +132,24 @@ def api_books(request):
         link = Post.objects.get(id=item['id']).get_absolute_url_api()
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
-        authorlist[name] = {'id': item['id'], 'title': name, 'author': author, 'url': link, 'download_link': downloadlink }
+        authorlist[name] = {'id': item['id'],
+                            'author': author,
+                            'url': link,
+                            'download_link': downloadlink }
 
     return JsonResponse(authorlist)
+
+def api_category(request):
+    authorslist_raw = list(Category.objects.values('id'))
+    authorlist = {}
+    for item in authorslist_raw:
+        name = Category.objects.get(id=item['id']).name
+        author = Category.objects.get(id=item['id']).author.name
+        authorlist[name] = {'id': item['id'],
+                            'author': author}
+
+    return JsonResponse(authorlist)
+
 
 def author_list(request):
     author_list = Author.objects.order_by("-name").all()
