@@ -49,7 +49,7 @@ def api(request):
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
         category = Post.objects.get(id=item['id']).category
-        tags = Post.objects.get().tags.all()
+        tags = Post.objects.get(id=item['id']).tags.all()
         taglist = []
         for i in tags:
             taglist.append(i.name)
@@ -121,7 +121,7 @@ def api_books_single(request, pk):
     info = book.content
     dwnldlink = book.file.url
     category = book.category.name
-    tags = Post.objects.get().tags.all()
+    tags = Post.objects.get(id=item['id']).tags.all()
     taglist = []
     for i in tags:
         taglist.append(i.name)
@@ -151,7 +151,7 @@ def api_books(request):
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
         category = Post.objects.get(id=item['id']).category
-        tags = Post.objects.get().tags.all()
+        tags = Post.objects.get(id=item['id']).tags.all()
         taglist = []
         for i in tags:
             taglist.append(i.name)
