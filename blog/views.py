@@ -51,7 +51,9 @@ def api_authors_single(request, author_name):
     authorlist = {}
     name = author.name
     info = author.author_info
-    books = Post.objects.get(author=author).values('title')
+    books = Post.objects.get(author=author)
+    for item in books:
+        item['title'] = model_to_dict(item['title'])
     authorlist[name] = {'id': author.id, 'name': name, 'info': info, 'books': books }
 
     return JsonResponse(authorlist)
