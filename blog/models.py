@@ -24,6 +24,9 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_by_author', args=[self.slug])
+    
+    def get_absolute_url_api(self):
+        return reverse('Api/Authors/Single', args=[self.id])
 
     def get_absolute_url_info(self):
         return reverse('author_info', args=[self.slug])
@@ -46,6 +49,9 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_by_category', args=[self.slug])
+    
+#     def get_absolute_url_api(self):
+#         return reverse('Api/Authors/Single', args=[self.id])
 
 
 class Tag(models.Model):
@@ -62,6 +68,8 @@ class Tag(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Tag, self).save(*args, **kwargs)
+        
+   
 
 
 class Post(models.Model):
@@ -84,6 +92,9 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_detail', args=[self.id])
+    
+    def get_absolute_url_api(self):
+        return reverse('Api/Books/Single', args=[self.id]) 
 
 class Feedback(models.Model):
     name = models.CharField(max_length=200)
