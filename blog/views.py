@@ -50,7 +50,7 @@ def api_authors_single(request, author_name):
     print(author_name)
     authorlist = {}
     name = author.name
-    info = author.info
+    info = author.author_info
     books = Post.objects.get(author=author)
     authorlist[name] = {'id': item['id'], 'name': name, 'info': info, 'books': books }
 
