@@ -48,7 +48,19 @@ def api(request):
         link = Post.objects.get(id=item['id']).get_absolute_url_api()
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
-        booklist[name] = {'id': item['id'], 'author': author, 'url': link, 'download_link': downloadlink }
+        category = Post.objects.get(id=item['id']).category
+        tags = Post.objects.get().tags.all()
+        taglist = []
+        for i in tags:
+            taglist.append(i.name)
+        booklist[name] = {'id': item['id'],
+                          'author': author,
+                          'url': link,
+                          'download_link': downloadlink,
+                          'category': category,
+                          'tags': taglist
+                          }
+
 
     authorslist_raw = list(Category.objects.values('id'))
     categorylist = {}
@@ -109,6 +121,11 @@ def api_books_single(request, pk):
     info = book.content
     dwnldlink = book.file.url
     category = book.category.name
+    tags = Post.objects.get().tags.all()
+    taglist = []
+    for i in tags:
+        taglist.append(i.name)
+
     
 #     booksraw = Post.objects.get(author=author)
 #     books = Post.objects.values('title')
@@ -120,6 +137,7 @@ def api_books_single(request, pk):
                         'author': author,
                         'info': info,
                         'category': category,
+                        'tags': taglist,
                         'downloadlink': dwnldlink}
 
     return JsonResponse(authorlist)
@@ -132,10 +150,19 @@ def api_books(request):
         link = Post.objects.get(id=item['id']).get_absolute_url_api()
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
+        category = Post.objects.get(id=item['id']).category
+        tags = Post.objects.get().tags.all()
+        taglist = []
+        for i in tags:
+            taglist.append(i.name)
+
         authorlist[name] = {'id': item['id'],
                             'author': author,
                             'url': link,
-                            'download_link': downloadlink }
+                            'download_link': downloadlink,
+                            'category' : category,
+                            'tags': taglist,
+                            }
 
     return JsonResponse(authorlist)
 
