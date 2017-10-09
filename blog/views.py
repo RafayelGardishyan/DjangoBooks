@@ -43,13 +43,16 @@ def api_authors(request):
     return JsonResponse(authorlist)
 
 def api_authors_single(request, author_name):
-    print(author)
-    authorslist_raw = list(Author.objects.values('id'))
+    try:
+        author = Author.objects.get(slug=author_name)
+    except Author.DoesNotExist:
+        return HttpResponseNotFound("Page not found")
+    print(author_name)
     authorlist = {}
-    for item in authorslist_raw:
-        link = Author.objects.get(id=item['id']).get_absolute_url_api()
-        name = Author.objects.get(id=item['id']).name
-        authorlist[name] = {'id': item['id'], 'url': link, }
+    name = author.name
+    info = author.info
+    books = Post.objects.get(author=author)
+    authorlist[name] = {'id': item['id'], 'name': name, 'info': info, 'books': books }
 
     return JsonResponse(authorlist)
 
