@@ -44,7 +44,7 @@ def api_authors(request):
 
 def api_authors_single(request, author_name):
     try:
-        author = Author.objects.get(slug=author_name)
+        author = Author.objects.get(id=author_name)
     except Author.DoesNotExist:
         return HttpResponseNotFound("Page not found")
     print(author_name)
