@@ -128,7 +128,7 @@ def api_books(request):
     authorslist_raw = list(Post.objects.values('id'))
     authorlist = {}
     for item in authorslist_raw:
-        author = Post.objects.get(id=item['id']).author
+        author = Post.objects.get(id=item['id']).author.name
         link = Post.objects.get(id=item['id']).get_absolute_url_api()
         downloadlink = Post.objects.get(id=item['id']).file.url
         name = Post.objects.get(id=item['id']).title
