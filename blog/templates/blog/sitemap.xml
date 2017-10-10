@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/</loc>
+  <changefreq>always</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/login/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/categories/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/1/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/sir-arthur-conan-doyle/books</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/category/detective/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/detective/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/sherlock-holmes/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/hound/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/dog/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/england/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/2/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/victor-hugo/books</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/category/epic-novel/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/les-miserables/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/epic/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/historical-fiction/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/victor-hugo/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/media/books_storage/Les-Miserables.pdf</loc>
+  <lastmod>2017-10-09T19:19:42+00:00</lastmod>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/3/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/herman-melville/books</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/category/adventure-fiction/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/moby/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/herman-melville/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/adventure/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/fiction/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/tag/dick/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/media/books_storage/Moby-Dick.pdf</loc>
+  <lastmod>2017-10-09T19:19:42+00:00</lastmod>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/feedback/</loc>
+  <changefreq>always</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/A</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/B</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/C</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/D</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/E</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/F</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/G</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/H</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/I</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/J</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/K</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/L</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/M</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/N</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/O</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/P</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/Q</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/R</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/S</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/T</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/U</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/V</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/W</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/X</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/Y</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/authors/Z</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/victor-hugo/info</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/sir-arthur-conan-doyle/info</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/rafayel/info</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://djangobooksnl.herokuapp.com/author/herman-melville/info</loc>
+  <changefreq>always</changefreq>
+  <priority>0.64</priority>
+</url>
+</urlset>
