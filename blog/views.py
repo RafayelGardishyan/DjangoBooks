@@ -18,6 +18,9 @@ def sitemap(request):
 def index(request):
     return HttpResponse("Hello Django")
 
+def api_docs(request):
+    return render(request, 'blog/api_docs.html')
+
 def post_list(request):
     post_list = Post.objects.order_by("-id").all()
     posts = helpers.pg_records(request, post_list, 10)
