@@ -1,0 +1,106 @@
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+</style>
+</head>
+{% extends "blog/base.html"  %}
+
+{% block title %}
+    API - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <div class="section-inner clearfix">
+
+        <h3>API Documention</h3>
+
+        <h4>1.1 URL's</h4>
+		<p>To use the DjangoBooks.API, go to the links in the following table</p>
+		<table>
+		<tr>
+		<th>Link</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Format</th>
+		</tr>
+		<tr>
+		<th><a href="/api">/api</a></th>
+		<th>API</th>
+		<th>Total information dictionary</th>
+		<th>JSON</th>
+		</tr>
+		<tr>
+		<th><a href="/api/authors">/api/authors</a></th>
+		<th>API/Authors</th>
+		<th>Information dictionary about authors</th>
+		<th>JSON</th>
+		</tr>
+		<tr>
+		<th><a href="/api/authors/1">/api/authors/(id of the author)</a></th>
+		<th>API/Authors/Single</th>
+		<th>Information dictionary about a single author</th>
+		<th>JSON</th>
+		</tr>
+		<tr>
+		<th><a href="/api/books">/api/books</a></th>
+		<th>API/Books</th>
+		<th>Information dictionary about books</th>
+		<th>JSON</th>
+		</tr>
+		<tr>
+		<th><a href="/api/books/1">/api/books/(id of the book)</a></th>
+		<th>API/Books/Single</th>
+		<th>Information dictionary about a single books</th>
+		<th>JSON</th>
+		</tr>
+		<tr>
+		<th><a href="/api/categories">/api/categories</a></th>
+		<th>API/Categories</th>
+		<th>Information dictionary about a categories</th>
+		<th>JSON</th>
+		</tr>
+		</table>
+		<h4>1.2 Handling JSON Response</h4>
+		<p>The website returns a JSON dictionary if you request an item. Here is a little example of how it returns the total dict:</p>
+        <blockquote class="quote">{"books": {"Les Miserables": {"id": 2, "author": "Victor Hugo", "url": "/api/books/2/", "download_link": "/media/books_storage/Les-Miserables.pdf", "category": "Epic novel", "tags": ["Les Miserables", "Epic", "Historical Fiction", "Victor Hugo"]}, "Moby Dick": {"id": 3, "author": "Herman Melville", "url": "/api/books/3/", "download_link": "/media/books_storage/Moby-Dick.pdf", "category": "Adventure Fiction", "tags": ["Moby", "Herman Melville", "Adventure", "Fiction", "Dick"]}, "The Hound of the Baskervilles": {"id": 1, "author": "Sir Arthur Conan Doyle", "url": "/api/books/1/", "download_link": "/media/books_storage/TheHoundoftheBaskervillesDB.epub", "category": "Detective", "tags": ["Detective", "Sherlock Holmes", "Hound", "Dog", "England"]}}, "authors": {"Sir Arthur Conan Doyle": {"id": 1, "url": "/api/authors/1"}, "Rafayel": {"id": 4, "url": "/api/authors/4"}, "Victor Hugo": {"id": 5, "url": "/api/authors/5"}, "Herman Melville": {"id": 6, "url": "/api/authors/6"}}, "categories": {"Detective": {"id": 3, "author": "Sir Arthur Conan Doyle"}, "Epic novel": {"id": 4, "author": "Rafayel"}, "Adventure Fiction": {"id": 5, "author": "Rafayel"}}}</blockquote>
+		<p>It returned now the books, authors and the categories but there are much more thing that are coming soon! To handle this response you can use the standard methods of your PL, because it returns data in JSON format</p>
+		<h4>Coming soon</h4>
+		<p>The is a a lot of explanation needed that we haven't introduced yet but there is a better documentaion coming soon. And a lot of other functions for developers
+		</div>
+    </div>
+
+{% endblock %}
