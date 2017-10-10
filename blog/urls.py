@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^api/categories/$', views.api_category, name='Api/Categories'),
     url(r'^api/authors/(?P<author_name>[\w-]+)$', views.api_authors_single, name='Api/Authors/Single'),
     url(r'^api/$', views.api, name='Api'),
+    url(r'^api/docs$', views.api_docs, name='Api/Docs'),
     url(r'^sitemap\.xml/$', views.sitemap, name='sitemap'),
 ]
