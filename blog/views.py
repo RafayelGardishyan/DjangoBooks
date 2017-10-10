@@ -7,6 +7,12 @@ from .models import Post, Author, Tag, Category
 from .forms import FeedbackForm
 from django_books import helpers
 from django.contrib import auth, messages
+from django.shortcuts import render_to_response
+
+def sitemap(request):
+    response = render_to_response('sitemap.xml')
+    response['Content-Type'] = 'application/xml;'
+    return response
 
 
 def index(request):
