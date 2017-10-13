@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+<div class="container back">
+<h1 class="title"><a href="/vote/" class="return">Django | Books-Vote</a><a href="/" class="return"> Home</a></h1>
+    <h1 class="titleText"><strong>Results</strong> |{{ question.question_text }}</h1>
+<table class="tata">
+    <tr>
+        <th class="tabletitle">Choice</th>
+        <th class="tabletitle">Votes</th>
+  </tr>
+{% for choice in question.choice_set.all %}
+    <tr>
+        <th style="width: 350px; font-size:20px; padding: 7px; background:rgba(0,0,0,0.2);">{{choice.choice_text}}</th>
+        <th style="padding: 7px; background:rgba(0,0,0,0.2); border-left: 4px solid white">{{ choice.votes }} vote{{ choice.votes|pluralize }}</th>
+    </tr>
+{% endfor %}
+</table>
+
+<a class="voteagain" href="{% url 'polls:detail' question.id %}">Vote again?</a>
+</div>
+<div class="footer">Copyright &copy;Rafayel Gardishyan 2017</div>

@@ -1,0 +1,22 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+
+<div class="container back">
+<h1 class="title"><a href="/vote/" class="return">Django | Books-Vote</a><a href="/" class="return"> Home</a></h1>
+    <h1 class="titleText"><strong>Polls List</strong></h1>
+<div class="bgtrans">
+    {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+</div>
+</div>
+<div class="footer">Copyright &copy;Rafayel Gardishyan 2017</div>

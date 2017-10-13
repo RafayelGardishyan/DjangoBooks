@@ -1,0 +1,112 @@
+.back{
+    margin-top: 20px;
+}
+
+*{
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li a {
+    color: green;
+    font-size: 25px;
+}
+
+li a:hover{
+    text-decoration: none;
+}
+
+.return{
+    color: #00a700;
+    font-size: 25px;
+}
+
+.return:hover{
+    text-decoration: none;
+}
+
+.tabletitle{
+    font-size: 25px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 7px;
+}
+
+.tabletitle:last-of-type{
+    border-left:4px solid white;
+}
+
+.titleText{
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+body {
+    background: white url("images/background.jpg");
+}
+
+/*input[type="submit"]{*/
+    /*background-color: #4CAF50; !* Green *!*/
+    /*border: none;*/
+    /*color: white;*/
+    /*padding: 7px 16px;*/
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+    /*display: inline-block;*/
+    /*font-size: 15px;*/
+/*}*/
+
+a.voteagain{
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.choiceradio{
+    font-size: 20px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.title{
+    font-size: 40px;
+    color: #4a7a38;
+}
+
+.footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.marginMore{
+    margin-top:15px;
+}
+
+.bgtrans{
+    border: 0.5px solid rgba(0,100,0,0.1);
+    border-radius: 25px;
+    background: rgba(0,100,0,0.1);
+    padding:15px;
+    height: 70%;
+    position: relative;
+}
+
+.tata{
+    margin-bottom: 20px;
+}
+
+.butn{
+    float: right;
+    margin-right: 25px;
+    margin-bottom: 25px ;
+    position: absolute;
+    bottom: 4%;
+    right: 0;
+}
+

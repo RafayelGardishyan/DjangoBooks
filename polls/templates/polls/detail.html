@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<div class="container back">
+<h1 class="title"><a href="/vote/" class="return">Django | Books-Vote</a><a href="/" class="return"> Home</a></h1>
+    <h1 class="titleText"><strong>Details</strong> | {{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post" class="bgtrans">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" class="w3-radio" />
+    <label class="choiceRadio" for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+{% endfor %}
+<div class="marginMore">
+<input type="submit" value="Vote" class="butn w3-large btn btn-success" />
+</div>
+</form>
+</div>
+<div class="footer">Copyright &copy;Rafayel Gardishyan 2017</div>
