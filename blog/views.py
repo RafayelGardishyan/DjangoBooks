@@ -197,6 +197,11 @@ def category_list(request):
     categoies = helpers.pg_records(request, category_list, 10)
     return render(request, 'blog/category_list.html', {'categories': categoies})
 
+def category_list_letter(request, letter):
+    category_list = Category.objects.order_by("-name").all().filter(name__startswith=letter)
+    categoies = helpers.pg_records(request, category_list, 10)
+    return render(request, 'blog/category_list.html', {'letter': letter, 'categories': categoies})
+
 def post_detail(request, pk):
     try:
         post = Post.objects.get(pk=pk)

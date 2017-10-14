@@ -49,6 +49,9 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('post_by_category', args=[self.slug])
+
+    def first_letter(self):
+        return self.name[0]
     
 #     def get_absolute_url_api(self):
 #         return reverse('Api/Authors/Single', args=[self.id])

@@ -37,13 +37,13 @@ a.link:link{ text-decoration: none;
 {% extends "blog/base.html"  %}
 
 {% block title %}
-    All categories - {{ block.super }}
+    All categories (Letter {{ letter }}) - {{ block.super }}
 {% endblock %}
 
 {% block content %}
     <div class="content">
         <div class="section-inner clearfix">
-            <ul class="letters">
+        <ul class="letters">
                 <li class="letter"><a class="link" href="/categories">All</a></li>
                 <li class="letter"><a class="link" href="/categories/A">A</a></li>
                 <li class="letter"><a class="link" href="/categories/B">B</a></li>
@@ -72,7 +72,6 @@ a.link:link{ text-decoration: none;
                 <li class="letter"><a class="link" href="/categories/Y">Y</a></li>
                 <li class="letter"><a class="link" href="/categories/Z">Z</a></li>
             </ul>
-
         {% for category in categories %}
             <div class="post">
             <h3>
