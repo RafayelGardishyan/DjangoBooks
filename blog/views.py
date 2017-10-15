@@ -290,7 +290,7 @@ def submit_book(request):
 
             mail_admins(subject, message)
             send_mail(
-                'Thanks for submitting feedback',
+                'Thanks for submitting a book',
                 'Hi, \nYour book is submitted and will be moderated. You will recieve an email from the moderator with a message about your book!',
                 'djangobooksemail@gmail.com',
                 [sender],
