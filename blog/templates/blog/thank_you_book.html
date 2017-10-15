@@ -1,0 +1,77 @@
+<head>
+    <style>
+                .content{
+			padding: 7.5px;
+			border-width: 5px;
+			border-color: #347bc1;
+			border-style: solid;
+			margin-left: 5px;
+			margin-right: 5px;
+			height: auto;
+			border-radius: 10px;
+			border-bottom-style: none;
+			border-top-style: none;
+			background-color: rgba(0,0,0,0.1);
+		}
+        .button{
+            background-color: #408627;
+            border: none;
+    color: white;
+    padding: 7.5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+            margin-top: 5px;
+        }
+        .button:hover {
+    background-color: #45a049;
+}
+        input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+        input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+                input[type=textarea], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+    </style>
+</head>
+{% extends "blog/base.html" %}
+
+{% block title %}
+    Submit book - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="content">
+    <div class="section-inner clearfix">
+
+        <h3>Submit Your book</h3>
+
+        <h2>Thank you {{ name }}, Your book is submitted</h2>
+
+        </div>
+    </div>
+
+{% endblock %}

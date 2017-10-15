@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.template.defaultfilters import slugify
 
-from .models import Author, Tag, Post, Category, Feedback
+from .models import Author, Tag, Post, Category, Feedback, SubmitBook
 
 
 class AuthorForm(forms.Form):
@@ -67,7 +67,7 @@ class PostForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super(PostForm, self).clean() # call the parent clean method
-        title  = cleaned_data.get('title')
+        title = cleaned_data.get('title')
         # if title exists create slug from title
         if title:
             cleaned_data['slug'] = slugify(title)
@@ -77,4 +77,10 @@ class FeedbackForm(forms.ModelForm):
 
     class Meta:
         model = Feedback
+        fields = '__all__'
+
+class SubmitBookForm(forms.ModelForm):
+
+    class Meta:
+        model = SubmitBook
         fields = '__all__'

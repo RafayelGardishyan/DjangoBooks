@@ -4,7 +4,7 @@ from django.core.mail import mail_admins, send_mail
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from .models import Post, Author, Tag, Category
-from .forms import FeedbackForm
+from .forms import FeedbackForm, SubmitBookForm
 from django_books import helpers
 from django.contrib import auth, messages
 from django.shortcuts import render_to_response
@@ -261,12 +261,47 @@ def feedback(request):
             message = "Subject: {}\n\nMessage: {}".format(f.cleaned_data['subject'], f.cleaned_data['message'])
 
             mail_admins(subject, message)
+            send_mail(
+                'Thanks for submitting feedback',
+                'Hi, we are happy to see you submit feedback on our website!\nThat helps us to make our website better, beautifuller and add more functions.',
+                'djangobooksemail@gmail.com',
+                [sender],
+                fail_silently=False,
+            )
             f.save()
             return render(request, 'blog/thank_you.html', {'name' : name})
 
     else:
         f = FeedbackForm()
     return render(request, 'blog/feedback.html', {'form': f})
+
+def submit_book(request):
+    if request.method == 'POST':
+        f = SubmitBookForm(request.POST)
+        if f.is_valid():
+            name = f.cleaned_data['submitter']
+            sender = f.cleaned_data['submitteremail']
+            book = f.cleaned_data['booktitle']
+            author = f.cleaned_data['bookauthor']
+            description = f.cleaned_data['bookdescription']
+            subject = "A new book is submitted by " + name + " - " + book
+            message = name + "\n" + sender + "\n" + book + "\n" + author + "\n" + description + "\n"
+
+
+            mail_admins(subject, message)
+            send_mail(
+                'Thanks for submitting feedback',
+                'Hi, \nYour book is submitted and will be moderated. You will recieve an email from the moderator with a message about your book!',
+                'djangobooksemail@gmail.com',
+                [sender],
+                fail_silently=False,
+            )
+            f.save()
+            return render(request, 'blog/thank_you_book.html', {'name': name})
+
+    else:
+        f = SubmitBookForm()
+    return render(request, 'blog/submit_book.html', {'form': f})
 
 def login(request):
     if request.user.is_authenticated():

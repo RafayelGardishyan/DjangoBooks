@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^logout/$', views.logout, name='blog_logout'),
     url(r'^admin_page/$', views.admin_page, name='admin_page'),
     url(r'^feedback/$', views.feedback, name='feedback'),
+    url(r'^submit/$', views.submit_book, name='submit_book'),
     url(r'^category/(?P<category_slug>[\w-]+)/$', views.post_by_category, name='post_by_category'),
     url(r'^author/(?P<author_name>[\w-]+)/books$', views.post_by_author, name='post_by_author'),
     url(r'^author/(?P<author_name>[\w-]+)/info$', views.author_info, name='author_info'),

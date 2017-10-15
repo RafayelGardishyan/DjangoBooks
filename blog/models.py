@@ -111,3 +111,17 @@ class Feedback(models.Model):
 
     def __str__(self):
         return self.name + "-" +  self.email
+
+class SubmitBook(models.Model):
+    submitter = models.CharField(max_length=200, verbose_name="Your name")
+    submitteremail = models.EmailField(max_length=200, verbose_name="Your E-mail")
+    booktitle = models.CharField(max_length=200, verbose_name="Book title")
+    bookauthor = models.CharField(max_length=200, verbose_name="Book author")
+    bookdescription = models.TextField(verbose_name="Book Description")
+    date = models.DateField(auto_now_add=True )
+
+    class Meta:
+        verbose_name_plural = "Submit a book"
+
+    def __str__(self):
+        return self.booktitle + "-" + self.submitter
