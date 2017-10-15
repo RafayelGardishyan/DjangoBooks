@@ -15,6 +15,16 @@ class FeedbackAdmin(admin.ModelAdmin):
             return self.readonly_fields + ('name', 'email', 'subject', 'message')
         return self.readonly_fields
 
+class SubmitAdmin(admin.ModelAdmin):
+    list_display = ('submitter', 'submitteremail', 'booktitle', 'bookauthor', 'date',)
+    search_fields = ('name', 'email', 'booktitle')
+    date_hierarchy = 'date'
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj:  # editing an existing object
+            return self.readonly_fields + ('submitter', 'submitteremail', 'bookttitle', 'bookauthor', 'bookdescription')
+        return self.readonly_fields
+
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'created_on')
     search_fields = ['name', 'email']
@@ -53,3 +63,4 @@ admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Author, AuthorAdmin)
 admin.site.register(models.Tag, TagAdmin)
 admin.site.register(models.Feedback, FeedbackAdmin)
+admin.site.register(models.SubmitBook, SubmitAdmin)
