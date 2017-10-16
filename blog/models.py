@@ -118,7 +118,6 @@ class SubmitBook(models.Model):
     booktitle = models.CharField(max_length=200, verbose_name="Book title")
     bookauthor = models.CharField(max_length=200, verbose_name="Book author")
     bookdescription = models.TextField(verbose_name="Book Description")
-    file = models.FileField(verbose_name="File", upload_to="UserSubmissions", blank=True, null=True)
     date = models.DateField(auto_now_add=True )
 
 
