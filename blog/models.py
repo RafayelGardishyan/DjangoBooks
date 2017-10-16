@@ -118,10 +118,12 @@ class SubmitBook(models.Model):
     booktitle = models.CharField(max_length=200, verbose_name="Book title")
     bookauthor = models.CharField(max_length=200, verbose_name="Book author")
     bookdescription = models.TextField(verbose_name="Book Description")
+    file = models.FileField(verbose_name="File", upload_to="UserSubmissions")
     date = models.DateField(auto_now_add=True )
 
+
     class Meta:
-        verbose_name_plural = "Submit a book"
+        verbose_name_plural = "Book Submission"
 
     def __str__(self):
         return self.booktitle + "-" + self.submitter
