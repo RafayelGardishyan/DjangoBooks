@@ -119,7 +119,7 @@ class SubmitBook(models.Model):
     bookauthor = models.CharField(max_length=200, verbose_name="Book author")
     bookdescription = models.TextField(verbose_name="Book Description")
     date = models.DateField(auto_now_add=True)
-    thefile = models.FileField(upload_to="submissions, blank= True, nul=, verbose_name="Book file")
+    thefile = models.FileField(upload_to="submissions", blank=True, null=True, verbose_name="Book file")
 
 
     class Meta:
