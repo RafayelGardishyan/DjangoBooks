@@ -277,7 +277,7 @@ def feedback(request):
 
 def submit_book(request):
     if request.method == 'POST':
-        f = SubmitBookForm(request.POST)
+        f = SubmitBookForm(request.POST, request.FILES)
         if f.is_valid():
             name = f.cleaned_data['submitter']
             sender = f.cleaned_data['submitteremail']
